@@ -68,14 +68,61 @@ app.put("/api/student/:id", (req, res) => {
     if(req.body.name){
         doc[index].name=req.body.name;
     }
-    if(request.body.currentClass){
+    if(req.body.currentClass){
         doc[index].currentClass=parseInt(req.body.currentClass);
     }
-    if(request.body.division){
+    if(req.body.division){
         doc[index].division=req.body.division;
     }
     res.set("content-type", "application/x-www-form-urlencoded");
-    res.send( {name:req.body.name});
+//     res.send( {name:req.body.name});
+    res.send(req.body.name);
+    
+    
+//         const studentId = req.params.id;
+
+//     const student = doc.find(el => el.id === parseInt(studentId));
+    
+
+//     if(!student){
+//         res.status(400).send();
+//         return;
+//     }
+//     else if(req.body.name){
+//         if(req.body.name.length === 0){
+//             res.status(400).send();
+//             return; 
+//         }
+//     }
+//     else if(req.body.currentClass){
+//         if(!Number.isInteger(req.body.currentClass)){
+//             res.status(400).send();
+//             return; 
+//         }
+//     }
+//     else if(req.body.division){
+//         if(!req.body.division.length === 1 || !req.body.division.match(/[A-Z]/)){
+//             res.status(400).send();
+//             return; 
+//         }
+//     }
+
+//     const studentIndex = studentArray.findIndex((el) => el.id === parseInt(studentId));
+
+//     const newStudent= {
+//         id: studentId,
+//         ...student,
+//         ...req.body
+//     }
+
+//     let classStudent = Number(newStudent.currentClass); 
+
+//     newStudent.currentClass = classStudent;
+
+//     doc.splice(studentIndex, 1, newStudent);
+
+//     //res.setHeader(['{"content-type":"application/x-www-form-urlencoded"}']);
+//     res.send(newStudent.name);
 });
 
 app.delete("/api/student/:id", (req, res) => {
